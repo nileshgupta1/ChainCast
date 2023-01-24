@@ -5,7 +5,7 @@ import Navbar from './components/Navbar'
 function App() {
 
   return (
-    <div className="App">
+    <div>
       <Navbar />
       <h1 class="text-3xl font-bold underline">
         Hello world!
