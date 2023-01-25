@@ -1,11 +1,13 @@
-.bg-post{
+.bg-post {
     /* background: linear-gradient(225deg, #1f005c, #540083, #a200a9, #d00099, #f60069, #ff1e38, #ff6844, #ffb56b); */
-    
-    background-image: linear-gradient(to right top, #f5e1ec, #eeddec, #e6daed, #ddd7ed, #d2d4ec, #ccd6ee, #c5d8ee, #c0daed, #c0e0ef, #c2e6ef, #c6ebef, #cbf0ee);
+    background-image: linear-gradient(to left top, #fff9ff, #fcf7fe, #f8f5fe, #f4f3fd, #f0f1fc, #edf2fd, #ebf2fd, #e8f3fd, #e8f6fd, #e9f9fd, #ebfcfc, #effefb);
 }
-.bg-body{
-    background-image: linear-gradient(to right top, #f2d4e5, #ead0e7, #e0cde9, #d4cbea, #c7c9ea, #bfcced, #b8d0ed, #b2d3ed, #b4dbee, #b9e3ee, #c1eaee, #cbf0ee);
+
+.bg-body {
+    /* background-image: linear-gradient(to right top, #fcecf9, #f8ebfb, #f3eafc, #eee9fd, #e8e9fe, #e3ebff, #dfedff, #dbefff, #daf3ff, #d9f7ff, #dafbff, #ddfefd); */
+    background-image: linear-gradient(to right top, #fef2fc, #fbf1fd, #f7f1fe, #f3f0ff, #eef0ff, #ebf1ff, #e8f2ff, #e5f3ff, #e3f5ff, #e3f7fe, #e3f9fc, #e5fbfa);
 }
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
