@@ -1,27 +1,22 @@
-import React from 'react';
-import Logo from "../images/redditlogo.png";
+import Logo from "../images/reddit-logo.png";
 
 function Navbar() {
     return (
-        <header className="w-full p-2">
-            <div className="mx-4 flex relative">
-                <img src={Logo} alt="" className="w-24 h-8 mr-4" />
-                <form onSubmit="" className="flex mx-4 flex-grow">
-                    <input type="text" className="text-sm border rounded-full w-full p-1 pl-2 pr-0 block bg-gray-100 focus:outline-none text-white"
+        <nav className="flex p-2 flex-row justify-center">
+                <img src={Logo} alt="logo" className="w-[5%] md:w-[3%] md:ml-8 md:mr-5 md:p-0 p-1 m-1 cursor-pointer"/>
+                <input type="text" className="text-sm border-2 w-11/12 border-black rounded-md bg-gray-100 focus:outline-none text-white placeholder-shown:px-4 placeholder-shown:py-1 placeholder-shown:text-md mr-12 ml-5"
                         placeholder="Search ChainCast"
                         value=""
                         onChange=""
-                    />
-                </form>
-                <button className="px-5 py-1 mx-1 border rounded-full bg-gray-200">
+                />
+                <button className="w-1/6 px-4 mx-1 py-auto border-2 border-black rounded-md bg-gray-200 hover:bg-gray-400 shadow-sm mr-5">
                     Get App
                 </button>
-                <button className="px-5 py-1 mx-1 border rounded-full text-white bg-orange-600">
+                <button className="w-1/6 px-4 mx-1 border-2 border-black rounded-md bg-black text-white hover:border-white shadow-sm">
                     Log In
                 </button>
-            </div>
-        </header>
+        </nav>
     )
 }
 
-export default Navbar
+export default Navbar;
