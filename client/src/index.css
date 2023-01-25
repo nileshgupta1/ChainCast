@@ -8,6 +8,21 @@
     background-image: linear-gradient(to right top, #fef2fc, #fbf1fd, #f7f1fe, #f3f0ff, #eef0ff, #ebf1ff, #e8f2ff, #e5f3ff, #e3f5ff, #e3f7fe, #e3f9fc, #e5fbfa);
 }
 
+.btn-body {
+    background-image: linear-gradient(to right, #3d298f, #3d298f, #3d298f, #3d298f, #3d298f, #3e2e93, #3f3498, #40399c, #4245a6, #4550af, #485bb8, #4c66c1);
+}
+
+.text-glow {
+    text-shadow: 0 0 80px rgb(192 219 255 / 75%), 0 0 32px rgb(65 120 255 / 24%);
+}
+
+.text-gradient {
+    background: linear-gradient(to right, #30CFD0, #c43ad6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
