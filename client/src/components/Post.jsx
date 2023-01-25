@@ -56,7 +56,7 @@ const Post = ({ postContent, userName }) => {
     return (
         <div className='w-2/3 flex flex-row justify-center rounded-xl overflow-visible shadow-xl items-center bg-post border-2 border-black'>
             <div className='flex flex-col justify-center items-center'>
-                <div className='text-black text-gradient font-semibold text-xl justify-around items-start mt-3'>
+                <div className='text-black font-semibold text-xl justify-around items-start mt-3'>
                     {userName}
                 </div>
                 <div className='flex flex-row'>
