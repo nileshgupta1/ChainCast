@@ -1,21 +1,22 @@
-import { useState,useRef,useEffect } from "react";
+import { useState, useEffect, useRef } from 'react';
 
-function useComponentVisible (intialIsVisible) {
-    const [isComponentVisible, setIsComponentVisible] = useState(intialIsVisible);
+export default function useComponentVisible(initialIsVisible) {
+    const [isComponentVisible, setIsComponentVisible] = useState(initialIsVisible);
     const ref = useRef(null);
-    const handleClickOutside = (event)=>{
-        if(ref.current && !ref.current.contains(event.target)){
+
+    const handleClickOutside = (event) => {
+        if (ref.current && !ref.current.contains(event.target)) {
             setIsComponentVisible(false);
+            // console.log(ref);
         }
     };
 
-    useEffect(()=>{
-        document.addEventListener('click',handleClickOutside,true);
-        return ()=>{
-            document.removeEventListener('click',handleClickOutside,true);
+    useEffect(() => {
+        document.addEventListener('click', handleClickOutside, true);
+        return () => {
+            document.removeEventListener('click', handleClickOutside, true);
         };
-    },[]);
+    }, []);
 
-    return {ref,isComponentVisible,setIsComponentVisible};
+    return { ref, isComponentVisible, setIsComponentVisible };
 }
-export default useComponentVisible;
