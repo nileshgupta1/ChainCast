@@ -53,18 +53,20 @@ const BottomBar = () => {
 }
 const Post = ({ postContent, userName, imgSrc}) => {
     return (
-        <div className='sm:whitespace-normal w-3/4 flex flex-row justify-center rounded-xl shadow-xl items-center bg-post border border-black mb-8'>
+        <div className='sm:whitespace-normal w-10/12 md:w-10/12 flex flex-row justify-center ml-20 md:ml-10 rounded-xl shadow-xl items-center bg-post border border-black mb-8'>
             <div className='flex flex-col justify-center items-center'>
                 <div className='text-black font-semibold text-xl justify-around items-start mt-3'>
                     {userName}
                 </div>
-                <div className='flex flex-row'>
+                <div className='flex flex-row justify-between'>
                     <PostSideBar />
-                    <div className='py-4 text-clip px-4 ml-5 mr-5'>
-                        {postContent}
-                    </div>
-                    <div className='py-4 text-clip px-4 ml-5 mr-5'>
-                        <img src={imgSrc} alt = "image"/>
+                    <div className=''>
+                        <div className='py-4 text-clip px-4 ml-5 mr-5'>
+                            {postContent}
+                        </div>
+                        <div className='py-4 text-clip px-4 ml-5 mr-5'>
+                            <img className = 'rounded-md' src = {imgSrc} alt = "image"/>
+                        </div>
                     </div>
                 </div>
                 <div>
