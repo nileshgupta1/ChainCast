@@ -35,7 +35,7 @@ const App = () =>{
         <Navbar/>
         {/* <div className='flex flex-row justify-between w-full h-screen'> */}
           <SideBar/>
-          <div id = "parentScrollDiv" className='h-screen overflow-auto customScroll'>
+          <div id = "parentScrollDiv" className='h-screen overflow-auto customScroll mt-10'>
             <InfiniteScroll 
               dataLength={data.length} 
               next={fetchMoreData}

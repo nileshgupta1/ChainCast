@@ -14,7 +14,7 @@ const SideBar = () => {
     const {ref,isComponentVisible,setIsComponentVisible} = useComponentVisible(false);
     return (
         <>
-            <div className="w-1/5 h-3/4 flex-col md:flex hidden sidebar-blur mx-10 float-left rounded-2xl">
+            <div className="w-1/5 h-3/4 flex-col md:flex hidden sidebar-blur mx-10 mt-10 float-left rounded-2xl">
                 {
                     ["Home","Trending","Streaming","Account"].map((item,index)=>(
                         <SideBarItem title = {item} key = {index+item}/>
