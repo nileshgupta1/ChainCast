@@ -1,4 +1,4 @@
-import Logo from "../images/reddit-logo.png";
+import Logo from "../images/ChainCast-2.png";
 
 function Navbar() {
     return (
@@ -6,8 +6,8 @@ function Navbar() {
             <img src={Logo} alt="logo" className="w-[5%] md:w-[3%] md:ml-8 md:mr-5 md:p-0 p-1 m-1 cursor-pointer" />
             <input type="text" className="text-sm border w-11/12 border-black rounded-md bg-gray-100 focus:outline-none text-white placeholder-shown:px-4 placeholder-shown:py-1 placeholder-shown:text-md mr-5 ml-5"
                 placeholder="Search ChainCast"
-                // value=""
-                // onChange=""
+            // value=""
+            // onChange=""
             />
             <button className="w-1/12 px-4 py-auto border border-black rounded-md hover:bg-white shadow-md mr-5 text-base">
                 Get App
