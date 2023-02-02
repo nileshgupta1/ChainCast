@@ -4,6 +4,8 @@ import SideBar from './components/SideBar';
 import Post from './components/Post';
 // import posts from './utils/posts';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import AddPost from './components/AddPost';
+import useComponentVisible from './hooks/useComponentVisible';
 
 // const index = 0;
 // let counter = 0;
@@ -17,52 +19,41 @@ const posts = {
 const App = () => {
   const [data, setData] = useState(Array.from({ length: 5 }, () => ({ ...posts })));
   const [hasMoreData, setHasMoreData] = useState(true);
-
+  const [openAddPost,setOpenAddPosts] = useState(false);
+  const {ref,isComponentVisible,setIsComponentVisible} = useComponentVisible(openAddPost);
+  // const handleClick = ()=>{
+  //   setOpenAddPosts(true);
+  // }
 
   const fetchMoreData = () => {
     // console.log(data.length);
-    if (data.length < 10) {
+    if (data.length < 50) {
       setTimeout(() => {
         setData(data.concat(Array.from({ length: 5 }, () => ({ ...posts }))));
-      }, 1000);
+      }, 4000);
     }
     else {
       setHasMoreData(false);
     }
   }
   return (
-    <div className='bg-body h-screen w-full overflow-hidden'>
-<<<<<<< HEAD
-        <Navbar/>
-        {/* <div className='flex flex-row justify-between w-full h-screen'> */}
-          <SideBar/>
-          <div id = "parentScrollDiv" className='h-screen overflow-auto customScroll mt-10'>
-            <InfiniteScroll 
-              dataLength={data.length} 
-              next={fetchMoreData}
-              hasMore={hasMoreData} 
-              loader={<p>Loading.....</p>} 
-              endMessage={"You have reached the end"}
-              scrollableTarget="parentScrollDiv"
-            >
-              {
-                data.map((post,index) => (
-                  <Post key = {index} userName={post.publisher} postContent = {post.postContent} imgSrc = {post.imgSrc} />
-                ))
-              }
-            </InfiniteScroll>
-          </div>        
-        {/* </div> */}
-=======
-      <Navbar />
-      {/* <div className='flex flex-row justify-between w-full h-screen'> */}
+    <div className='bg-body w-full h-screen overflow-y-hidden'>
+      <Navbar setIsComponentVisible = {setIsComponentVisible} setOpenAddPosts={setOpenAddPosts}/>
+      <div className='flex flex-row justify-between w-full h-screen'>
       <SideBar />
+      {
+        isComponentVisible && <AddPost reference = {ref} setIsComponentVisible = {setIsComponentVisible} openAddPost = {openAddPost} setOpenAddPosts = {setOpenAddPosts}/>
+      }
       <div id="parentScrollDiv" className='h-screen overflow-auto customScroll'>
         <InfiniteScroll
           dataLength={data.length}
           next={fetchMoreData}
           hasMore={hasMoreData}
-          loader={<p>Loading.....</p>}
+          loader={
+            <div className='flex text-white justify-center mb-80 items-center h-1/6 w-full bg-black'> 
+                Ruk Jao Bhai
+            </div>
+          }
           endMessage={"You have reached the end"}
           scrollableTarget="parentScrollDiv"
         >
@@ -73,8 +64,7 @@ const App = () => {
           }
         </InfiniteScroll>
       </div>
-      {/* </div> */}
->>>>>>> 302f1926a867015ed7bcdc48a7d12b85f6482acc
+      </div>
     </div>
 
   )
