@@ -1,5 +1,4 @@
 import Logo from "../images/reddit-logo.png";
-import { useState } from "react";
 
 function Navbar({setIsComponentVisible,setOpenAddPosts}) {
     const handleClick = ()=>{
