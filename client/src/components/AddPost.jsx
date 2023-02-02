@@ -19,13 +19,13 @@ const AddPost = ({setIsComponentVisible,reference,setOpenAddPosts})=>{
             }
         ))
     }
-    // const handleFileChange = (e) => {
-    //     if (e.target.files) {
-    //         console.log(e.target.files)
-    //       setFile(e.target.files[0]);
-    //       console.log(file);
-    //     }
-    // };
+    const handleFileChange = (e) => {
+        if (e.target.files) {
+            console.log(e.target.files)
+          setFile(e.target.files[0]);
+          console.log(file);
+        }
+    };
     const handleUpload = (e)=>{
         if(postContent.username === ""){
             setPostContent((prev)=>(
