@@ -1,11 +1,10 @@
 import { Web3Storage } from 'web3.storage'
-import posts from '../client/src/utils/posts'
-import { retrieve } from './retrieve';
 
-const [formData, setformData] = useState({ imageObject: "", text: "", title: "", username: "", time: "" });
+// const [formData, setformData] = useState({ username: "", title: "", post: "", time: "" });
 
 function getAccessToken() {
-    return process.env.WEB3STORAGE_TOKEN
+    return 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDgyQTNDNzQ5MTMwRGE0MTE4NENhNjExNGZiODlGMzYwZkVlMGNCNTUiLCJpc3MiOiJ3ZWIzLXN0b3JhZ2UiLCJpYXQiOjE2NzQ5MjMwMzU4NDUsIm5hbWUiOiJjaGFpbkNhc3QifQ.vXJQnOBWq6bcVbiAQnyxmqzHx3P_B73L1EM0CgvKoO4';
+    // return process.env.WEB3STORAGE_TOKEN;
 }
 
 function makeStorageClient() {
@@ -13,45 +12,42 @@ function makeStorageClient() {
 }
 
 async function storeFiles(files) {
-    const client = makeStorageClient()
-    const cid = await client.put(files)
-    console.log('stored files with cid:', cid)
-    return cid
+    const client = makeStorageClient();
+    const cid = await client.put(files);
+    console.log('stored files with cid:', cid);
+    return cid;
 }
 
-{/* <input name="username" type="text" handleChange={handleChange} />
-<input name="title" type="number" handleChange={handleChange} />
-<input  name="text" type="text" handleChange={handleChange} /> 
-<input name="imageObject" type="file" handleChange={handleChange} /> */}
-const handleChange = (e, name) => {
-    const dt = new Date();
-    const time_str = `${dt.getHours()}:${dt.getMinutes()}  ${dt.getDate()}-${dt.getMonth() + 1}-${dt.getFullYear()}`;
-    setformData((prevState) => ({
-        ...prevState,
-        time: time_str,
-        [name]: e.target.value
-    }));
-}
+// const handleChange = (e, name) => {
+//     const dt = new Date();
+//     const time_str = `${dt.getHours()}:${dt.getMinutes()}  ${dt.getDate()}-${dt.getMonth() + 1}-${dt.getFullYear()}`;
+//     setformData((prevState) => ({
+//         ...prevState,
+//         time: time_str,
+//         [name]: e.target.value
+//     }));
+// }
 
-function makeFileObjects() {
+function makeFileObjects(formData) {
 
-    const { imageObject, text, title, username, time } = formData;
+    const { username, title, post, time } = formData;
 
     const obj = {
-        text: text,
+        userName: username,
         title: title,
-        username: username,
+        post: post,
         time: time
     }
     const blob = new Blob([JSON.stringify(obj)], { type: 'application/json' })
 
     const files = [
         new File([blob], 'post-content.json'),
-        new File([imageObject], 'post-image.png', { type: "mime/image", })
+        // new File([imageObject], 'post-image.png', { type: "mime/image", })
     ]
 
     const post_cid = storeFiles(files);
-    retrieveFiles(post_cid);
+    // retrieveFiles(post_cid);
+    console.log("Cheers!")
 }
 
 
@@ -80,3 +76,5 @@ function makeFileObjects() {
 //     // and return the root cid when the upload completes
 //     return client.put(files, { onRootCidReady, onStoredChunk })
 // }
+
+export {makeFileObjects};
