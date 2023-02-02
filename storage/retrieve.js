@@ -1,5 +1,7 @@
 import { Web3Storage } from 'web3.storage'
 
+export const retrieve = React.createContext();
+
 function getAccessToken() {
     return process.env.WEB3STORAGE_TOKEN
 }
@@ -8,19 +10,8 @@ function makeStorageClient() {
     return new Web3Storage({ token: getAccessToken() })
 }
 
-// ----------------------------------------------------------------------------------
-async function retrieve(cid) {
-    const client = makeStorageClient()
-    const res = await client.get(cid)
-    console.log(`Got a response! [${res.status}] ${res.statusText}`)
-    if (!res.ok) {
-        throw new Error(`failed to get ${cid}`)
-    }
+const post_data= {}
 
-    // request succeeded! do something with the response object here...
-}
-
-// -----------------------------------------------------------------------------------
 async function retrieveFiles(cid) {
     const client = makeStorageClient()
     const res = await client.get(cid)
@@ -33,13 +24,6 @@ async function retrieveFiles(cid) {
     const files = await res.files()
     for (const file of files) {
         console.log(`${file.cid} -- ${file.path} -- ${file.size}`)
+
     }
 }
-
-
-
-
-
-
-
-

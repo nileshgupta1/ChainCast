@@ -56,7 +56,7 @@ const AddPost = ({setIsComponentVisible,reference,setOpenAddPosts})=>{
                         }}/>
                     </div>
                     <div className="flex flex-col justify-around items-center w-full h-3/4">
-                    <input type="text" name = "username" onChange={handleChange} className={styles}
+                    <input type="text" name = "username" onChange={handleChange} className={styles} value={postContent.username}
                         placeholder="Anonymus"
                     />
                     <input type="text" name = "title" onChange={handleChange} value={postContent.title} className={styles}
