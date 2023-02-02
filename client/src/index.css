@@ -1,3 +1,4 @@
+
 .bg-post {
     /* background: linear-gradient(225deg, #1f005c, #540083, #a200a9, #d00099, #f60069, #ff1e38, #ff6844, #ffb56b); */
     background-image: linear-gradient(to left top, #fff9ff, #fcf7fe, #f8f5fe, #f4f3fd, #f0f1fc, #edf2fd, #ebf2fd, #e8f3fd, #e8f6fd, #e9f9fd, #ebfcfc, #effefb);
@@ -24,13 +25,22 @@
 
 .sidebar-blur {
     background: rgba(255, 255, 255, 0.12);
+    background-color: transparent;
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    /* backdrop-filter: blur(4.2px); */
+    -webkit-backdrop-filter: blur(4.2px);
+    border: 1px solid rgba(255, 255, 255, 0.21);
+}
+.modal-blur{
+    background: rgba(255, 255, 255, 0.12);
+    background-color: transparent;
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(4.2px);
     -webkit-backdrop-filter: blur(4.2px);
     border: 1px solid rgba(255, 255, 255, 0.21);
 }
-
 .customScroll::-webkit-scrollbar{
     width: 8px;
     height: 10px;
