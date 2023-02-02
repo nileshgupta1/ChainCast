@@ -1,5 +1,6 @@
 import Logo from "../images/reddit-logo.png";
 
+
 function Navbar({setIsComponentVisible,setOpenAddPosts}) {
     const handleClick = ()=>{
         setIsComponentVisible(true);
@@ -21,6 +22,7 @@ function Navbar({setIsComponentVisible,setOpenAddPosts}) {
                 </button>
             </nav>
         
+
     )
 }
 
