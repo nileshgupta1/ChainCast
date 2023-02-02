@@ -9,7 +9,7 @@ function getAccessToken() {
 function makeStorageClient() {
     return new Web3Storage({ token: getAccessToken() })
 }
-
+// cid = bafybeibubgutln7yl5cfhy5ythslmimzbh7oz7zayjmvthmmp2qemxifwi;
 const post_data= {}
 
 async function retrieveFiles(cid) {
