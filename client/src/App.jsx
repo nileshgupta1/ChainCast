@@ -56,11 +56,15 @@ const App = () => {
           }}
           hasMore={hasMoreData}
           loader={
-            <div className='flex text-white justify-center mb-60 items-center h-1/6 w-4/5 bg-black'> 
+            <div className='flex justify-center mb-40 items-center h-2/5 py-4 w-4/5 ml-14'> 
               <Loader loading={loading} setLoading={setLoading}/>
             </div>
           }
-          endMessage={"You have reached the end"}
+          endMessage={
+            <div className='flex text-black text-2xl font justify-center mb-40 items-center h-2/5 py-4 w-4/5 ml-14'>
+              You have reached the end...
+            </div>
+          }
           scrollableTarget="parentScrollDiv"
         >
           {

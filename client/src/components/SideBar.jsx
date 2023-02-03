@@ -5,7 +5,7 @@ import useComponentVisible from '../hooks/useComponentVisible';
 
 const SideBarItem = ({title})=>{
     return (
-        <div className="mt-10 text-xl py-2 h-10 hover:text-black hover:text-lg text-sky-700 cursor-pointer flex items-center justify-center">
+        <div className="mt-10 ml-10 text-lg py-2 h-10 hover:text-black hover:text-xl text-sky-700 cursor-pointer flex items-center justify-start">
                 {title}
         </div>
     )
