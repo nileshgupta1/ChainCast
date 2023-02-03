@@ -5,7 +5,9 @@ import useComponentVisible from '../hooks/useComponentVisible';
 
 const SideBarItem = ({title})=>{
     return (
-        <div className="mt-4 py-2 pl-8 text-sky-700 cursor-pointer">{title}</div>
+        <div className="mt-10 text-xl py-2 h-10 hover:text-black hover:text-lg text-sky-700 cursor-pointer flex items-center justify-center">
+                {title}
+        </div>
     )
 }
 
@@ -14,7 +16,7 @@ const SideBar = () => {
     const {ref,isComponentVisible,setIsComponentVisible} = useComponentVisible(false);
     return (
         <>
-            <div className="w-7/12 h-3/4 flex-col md:flex hidden sidebar-blur mx-10 mt-10 rounded-2xl">
+            <div className="md:w-10/12 w-7/12 h-3/4 flex-col md:flex hidden sidebar-blur mx-10 mt-10 rounded-2xl">
                 {
                     ["Home","Trending","Streaming","Account"].map((item,index)=>(
                         <SideBarItem title = {item} key = {index+item}/>

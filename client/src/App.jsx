@@ -5,6 +5,7 @@ import Post from './components/Post';
 // import posts from './utils/posts';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import AddPost from './components/AddPost';
+import Loader from './components/Loader';
 import useComponentVisible from './hooks/useComponentVisible';
 
 // const index = 0;
@@ -20,6 +21,7 @@ const App = () => {
   const [data, setData] = useState(Array.from({ length: 5 }, () => ({ ...posts })));
   const [hasMoreData, setHasMoreData] = useState(true);
   const [openAddPost,setOpenAddPosts] = useState(false);
+  const [loading,setLoading] = useState(true);
   const {ref,isComponentVisible,setIsComponentVisible} = useComponentVisible(openAddPost);
   // const handleClick = ()=>{
   //   setOpenAddPosts(true);
@@ -30,6 +32,7 @@ const App = () => {
     if (data.length < 50) {
       setTimeout(() => {
         setData(data.concat(Array.from({ length: 5 }, () => ({ ...posts }))));
+        setLoading(false);
       }, 4000);
     }
     else {
@@ -44,14 +47,17 @@ const App = () => {
       {
         isComponentVisible && <AddPost reference = {ref} setIsComponentVisible = {setIsComponentVisible} openAddPost = {openAddPost} setOpenAddPosts = {setOpenAddPosts}/>
       }
-      <div id="parentScrollDiv" className='h-screen overflow-auto customScroll'>
+      <div id="parentScrollDiv" className='h-screen flex overflow-auto customScroll scroll-smooth'>
         <InfiniteScroll
           dataLength={data.length}
-          next={fetchMoreData}
+          next={()=>{
+            setLoading(true);
+            fetchMoreData();
+          }}
           hasMore={hasMoreData}
           loader={
-            <div className='flex text-white justify-center mb-80 items-center h-1/6 w-full bg-black'> 
-                Ruk Jao Bhai
+            <div className='flex text-white justify-center mb-60 items-center h-1/6 w-4/5 bg-black'> 
+              <Loader loading={loading} setLoading={setLoading}/>
             </div>
           }
           endMessage={"You have reached the end"}
