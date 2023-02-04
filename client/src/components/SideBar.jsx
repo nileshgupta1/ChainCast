@@ -29,7 +29,7 @@ const SideBar = () => {
                     setIsComponentVisible(false);
                 }}/> 
                 : 
-                <AiOutlineMenu fontSize={30} className="mx-10 mt-5 md:hidden rounded-md cursor-pointer group-hover:bg-white p-1" onClick={()=>{
+                <AiOutlineMenu fontSize={30} className="mx-5 mt-5 md:hidden rounded-md cursor-pointer group-hover:bg-white p-1" onClick={()=>{
                     setIsComponentVisible(true);
                 }}/>
                 }

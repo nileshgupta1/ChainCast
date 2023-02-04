@@ -51,7 +51,7 @@ const BottomBar = () => {
 }
 const Post = ({ postContent, userName, title ,imgSrc}) => {
     return (
-        <div className='sm:whitespace-normal w-[600px] md:w-[950px] flex flex-col justify-center rounded-xl shadow-xl items-center bg-post border border-black mb-8'>
+        <div className='sm:whitespace-normal sm:w-[650px] md:w-full lg:w-[800px] flex flex-col justify-center rounded-xl shadow-xl items-center bg-post border border-black mb-8'>
             <div className='text-gray-600 flex w-full text-sm justify-start items-start mt-3'>
                     <div className='mr-1 ml-12'>Posted By {userName}</div>
                     <div className=''>{`some`} days ago</div>
