@@ -4,13 +4,13 @@ import ReactDOM from "react-dom";
 import { PostContext } from "../context/PostContext";
 // import { makeFileObjects } from "../../../storage/storage";
 const AddPost = ({setIsComponentVisible,reference,setOpenAddPosts})=>{
-    const {makeFileObjects,isLoading,setIsLoading} = useContext(PostContext);
+    const {makeFileObjects,isLoading,setIsLoading,retrieveFiles,storedCids} = useContext(PostContext);
     const [file,setFile] = useState({});
     const [postContent,setPostContent] = useState({
         username : "Anonymous",
         title : "",
         post : "",
-        timestamp : "15/02/5453"
+        timestamp : ""
     });
     const handleChange = (e)=>{
         const {name,value} = e.target;
@@ -23,9 +23,9 @@ const AddPost = ({setIsComponentVisible,reference,setOpenAddPosts})=>{
     }
     const handleFileChange = (e) => {
         if (e.target.files) {
-            console.log(e.target.files)
-          setFile(e.target.files[0]);
-          console.log(file);
+            // console.log(e.target.files);
+            setFile(e.target.files[0]);
+            console.log(file);
         }
     };
     const handleUpload = (e)=>{
@@ -43,7 +43,10 @@ const AddPost = ({setIsComponentVisible,reference,setOpenAddPosts})=>{
             ...prev,
             timestamp : time_str
          }));
-        makeFileObjects(postContent);
+        makeFileObjects(postContent,file);
+        // retrieveFiles("bafybeifhlumygrnabkln5frgkvvbyttp62podk6naecz2pcspwfme3zzmy");
+        // setIsComponentVisible(false);
+        // setOpenAddPosts(false);
 }
     
     const styles = "rounded-md px-4 py-2 bg-gray-50 border border-black focus:ring-black focus:border-black w-10/12 placeholder-shown:text-md mr-5 ml-5 bg-gray-50 text-gray-900 grow-0 shrink-0";
@@ -71,9 +74,9 @@ const AddPost = ({setIsComponentVisible,reference,setOpenAddPosts})=>{
                         rows = "5" cols = "50" placeholder="Post"
                         className={textStyle} 
                     ></textarea>
-                    {/* <input type="file" name="files" onChange={handleFileChange} className={styles}
+                    <input type="file" name="image" onChange={handleFileChange} className={styles}
                         placeholder="Upload Image"
-                    /> */}
+                    />
                     </div>
                     <div className="flex flex-row justify-end items-center w-full h-[65px] mb-4">
                     {
