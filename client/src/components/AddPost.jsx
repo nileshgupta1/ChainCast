@@ -51,10 +51,10 @@ const AddPost = ({setIsComponentVisible,reference,setOpenAddPosts,cidArr,setCidA
         makeCidArr(cidArr)
         .then((response)=>{
             console.log('array response :',response);
-            console.log('mainCid :',mainCid);
+            // console.log('mainCid :',mainCid);
             setMainCid(response);
             console.log('new mainCid :',mainCid);
-            localStorage.setItem("latestMainCid",mainCid);
+            localStorage.setItem("latestMainCid",response);
         });
         retrieveFiles(mainCid)
         .then((response)=>{
@@ -82,7 +82,7 @@ const AddPost = ({setIsComponentVisible,reference,setOpenAddPosts,cidArr,setCidA
                     </div>
                     <div className="flex flex-col justify-around items-center w-full h-4/5">
                     <input type="text" name = "username" onChange={handleChange} className={styles} value={postContent.username}
-                        placeholder="Anonymus"
+                        placeholder="Username"
                     />
                     <input type="text" name = "title" onChange={handleChange} value={postContent.title} className={styles}
                         placeholder="Title"
