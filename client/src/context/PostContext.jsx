@@ -12,7 +12,7 @@ let newCidOfArr;
 export const PostProvider = ({children})=>{
     const [isLoading, setIsLoading] = useState(false);
     const [isLoaded,setIsLoaded] = useState(false);    
-    const [mainCid,setMainCid] = useState( localStorage.latestMainCid ||'bafybeiasbtpoqbcwaxepv3tbfewxse4qg7c7cuvqzmag4oywbzcyuw66kq');
+    // const [mainCid,setMainCid] = useState( localStorage.latestMainCid ||'bafybeiasbtpoqbcwaxepv3tbfewxse4qg7c7cuvqzmag4oywbzcyuw66kq');
     const getAccessToken = ()=>{
         return 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDgyQTNDNzQ5MTMwRGE0MTE4NENhNjExNGZiODlGMzYwZkVlMGNCNTUiLCJpc3MiOiJ3ZWIzLXN0b3JhZ2UiLCJpYXQiOjE2NzQ5MjMwMzU4NDUsIm5hbWUiOiJjaGFpbkNhc3QifQ.vXJQnOBWq6bcVbiAQnyxmqzHx3P_B73L1EM0CgvKoO4';
         // return process.env.WEB3STORAGE_TOKEN;
@@ -141,7 +141,7 @@ export const PostProvider = ({children})=>{
     //     retrieveFiles(mainCid);
     // },[cidArr]);
     return(
-        <PostContext.Provider value={{retrieveFilesFromArray,getAccessToken,storeFiles,makeFileObjects,mainCid,retrieveFiles,isLoading,isLoaded,makeCidArr,newCidOfArr}}>
+        <PostContext.Provider value={{retrieveFilesFromArray,getAccessToken,storeFiles,makeFileObjects,retrieveFiles,isLoading,isLoaded,makeCidArr,newCidOfArr}}>
             {children}
         </PostContext.Provider>
     )
