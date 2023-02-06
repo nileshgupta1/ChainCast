@@ -16,7 +16,7 @@ let counter = 5;
 const App = () => {
   const {retrieveFiles,makeCidArr,retrieveFilesFromArray} = useContext(PostContext);
   const [isPostAvail, setIsPostAvail] = useState(true);
-  const [mainCid,setMainCid] = useState( localStorage.latestMainCid ||'bafybeicgv2e5t6ldf3e5z6ejgki2apyklt27jqc2bzcqn5x5dh372nsdmy');
+  const [mainCid,setMainCid] = useState( localStorage.latestMainCid ||'bafybeihpfn3hdc5kxmkfh63vdkcrheziyv4kyqbpf6mcibbv4ngsamjglm');
   const [cidArr,setCidArr] = useState([]);
   const [loading,setLoading] = useState(true);
   const [data, setData] = useState([]);
