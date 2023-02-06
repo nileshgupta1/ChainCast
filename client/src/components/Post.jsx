@@ -49,23 +49,27 @@ const BottomBar = () => {
             </div>
         </div>);
 }
-const Post = ({ postContent, userName, imgSrc}) => {
+const Post = ({ postContent, userName, title ,imgSrc}) => {
     return (
-        <div className='sm:whitespace-normal w-10/12 md:w-10/12 flex flex-col justify-center ml-20 md:ml-10 rounded-xl shadow-xl items-center bg-post border border-black mb-8'>
+        <div className='sm:whitespace-normal sm:w-[650px] md:w-full lg:w-[800px] flex flex-col justify-center rounded-xl shadow-xl items-center bg-post border border-black mb-8'>
             <div className='text-gray-600 flex w-full text-sm justify-start items-start mt-3'>
                     <div className='mr-1 ml-12'>Posted By {userName}</div>
                     <div className=''>{`some`} days ago</div>
             </div>
-            <div className='flex flex-col justify-center items-center'>
-                
-                <div className='flex flex-row justify-between mt-5'>
+            <div className='flex flex-col justify-center w-full items-center'>
+                <div className='flex flex-row w-full justify-between mt-5'>
                     <PostSideBar />
-                    <div className='flex flex-col overflow-y-clip h-60'>
-                        <div className='flex justify-center font-semibold text-xl'>Title</div>
-                        <div className='py-4 text-clip px-4 ml-5 mr-5'>
+                    <div className='flex flex-col overflow-y-clip w-full h-60'>
+                        <div className='px-4 mx-5 font-semibold text-xl'>
+                            <div className=''>
+
+                            </div>
+                            {title}
+                        </div>
+                        <div className='py-4 text-clip px-4 mx-5'>
                             {postContent}
                         </div>
-                        <div className='py-4 text-clip px-4 ml-5 mr-5'>
+                        <div className='py-4 text-clip px-4 ml-5 mr-5 flex justify-center'>
                             <img className = 'rounded-md' src = {imgSrc} alt = "image"/>
                         </div>
                     </div>
