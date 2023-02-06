@@ -3,10 +3,9 @@ import { useState,useContext } from "react";
 import ReactDOM from "react-dom";
 import { PostContext } from "../context/PostContext";
 // import { makeFileObjects } from "../../../storage/storage";
-const AddPost = ({setIsComponentVisible,reference,setOpenAddPosts,cidArr,setCidArr,setMainCid,mainCid,data,setData})=>{
-    const {makeFileObjects,isLoading,isLoaded,retrieveFiles,makeCidArr} = useContext(PostContext);
+const AddPost = ({setIsComponentVisible,reference,setOpenAddPosts})=>{
+    const {makeFileObjects,isLoading,isLoaded} = useContext(PostContext);
     const [file,setFile] = useState({});
-
     const [postContent,setPostContent] = useState({
         username : "Anonymous",
         title : "",
@@ -29,7 +28,7 @@ const AddPost = ({setIsComponentVisible,reference,setOpenAddPosts,cidArr,setCidA
             console.log(file);
         }
     };
-    const handleUpload = async (e)=>{
+    const handleUpload = (e)=>{
         if(postContent.username === ""){
             setPostContent((prev)=>(
                 {
@@ -44,23 +43,7 @@ const AddPost = ({setIsComponentVisible,reference,setOpenAddPosts,cidArr,setCidA
             ...prev,
             timestamp : time_str
          }));
-        makeFileObjects(postContent,file)
-        .then((response)=>{
-            setCidArr([...cidArr,response]);
-        });
-        makeCidArr(cidArr)
-        .then((response)=>{
-            console.log('array response :',response);
-            console.log('mainCid :',mainCid);
-            setMainCid(response);
-            console.log('new mainCid :',mainCid);
-            localStorage.setItem("latestMainCid",mainCid);
-        });
-        retrieveFiles(mainCid)
-        .then((response)=>{
-            setData(response);
-        });
-
+        makeFileObjects(postContent,file);
         // retrieveFiles("bafybeifhlumygrnabkln5frgkvvbyttp62podk6naecz2pcspwfme3zzmy");
         // setIsComponentVisible(false);
         // setOpenAddPosts(false);
